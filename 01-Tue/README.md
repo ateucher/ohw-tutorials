@@ -5,7 +5,7 @@
 - Presentation materials:
 - [YouTube recording]()                                                                                                  
 
-## Tutorial 2
-- Presenter:               
-- Presentation materials:     
+## Inroduction to Xarray
+- Presenter: Valentina Staneva, Alex Kerney               
+- Presentation materials: [repo]([repo](https://github.com/oceanhackweek/ohw-tutorials/tree/OHW26/01-Tue/xarray_tutorials)  )      
 - [YouTube recording]()  
