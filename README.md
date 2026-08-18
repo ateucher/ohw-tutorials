@@ -6,7 +6,7 @@
 | Mon 2| AI Assisted Programming  | Eli Holmes | | |
 | Mon 3| Getting started with Git/GitHub | Austen Sorochak | | |
 | Tue 1| Ocean Data Access | Yayla Sezginer | | |
-| Tue 2| Introduction to Xarray |  Valentina Staneva, Alex Kerney | https://github.com/oceanhackweek/ohw-tutorials/tree/OHW26/01-Tue/xarray | |
+| Tue 2| Introduction to Xarray |  Valentina Staneva, Alex Kerney | [repo](https://github.com/oceanhackweek/ohw-tutorials/tree/OHW26/01-Tue/xarray) | |
 | Wed 1| Object Detection \& Image Segmentation | Spencer Bialek| | | 
 | Wed 2| Data Viz Show & Tell | Yayla, Julek, Madeline, Bronwyn| |
 | Thu 1| Reproducible Workflows | Andy Teucher | | |
