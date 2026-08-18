@@ -1,5 +1,18 @@
 # Oceanhackweek
 
+| Day | Tutorial | Presenter/s | Materials | Recording|
+|-----|----------|-----------|-----------|------------|
+| Mon 1|Introduction to JupyterHub and Virtual Environments with Pixi  | Eli Holmes, Alex Kerney | [Intro to JupyterHub](), [Intro to Pixi]() | |
+| Mon 2| AI Assisted Programming  | Eli Holmes | | |
+| Mon 3| Getting started with Git/GitHub | Austen Sorochak | | |
+| Tue 1| Ocean Data Access | Yayla Sezginer | | |
+| Tue 2| Introduction to Xarray |  Valentina Staneva, Alex Kerney | [repo](https://github.com/oceanhackweek/ohw-tutorials/tree/OHW26/01-Tue/xarray) | |
+| Wed 1| Object Detection \& Image Segmentation | Spencer Bialek| | | 
+| Wed 2| Data Viz Show & Tell | Yayla, Julek, Madeline, Bronwyn| |
+| Thu 1| Reproducible Workflows | Andy Teucher | | |
+
+
+
 Please check the branches for past tutorials:
 
 - [OHW26](https://github.com/oceanhackweek/ohw-tutorials/tree/OHW26)
