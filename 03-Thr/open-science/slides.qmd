@@ -1,0 +1,6 @@
+---
+title: "Open Science and Reproducible Workflows"
+format:
+  revealjs:
+    theme: [moon, slides.scss]
+---

@@ -1,11 +1,6 @@
 # Thursday tutorials
 
-## Tutorial 1           
-- Presenter:
+## Open Science and Reproducible Workflows           
+- Presenter: Andy Teucher
 - Presentation materials:
 - [YouTube recording]()                                                                                                  
-
-## Tutorial 2
-- Presenter:               
-- Presentation materials:     
-- [YouTube recording]()  
