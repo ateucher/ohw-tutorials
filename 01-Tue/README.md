@@ -1,8 +1,8 @@
 # Tuesday tutorials
 
 ## Tutorial 1           
-- Presenter:
-- Presentation materials:
+- Presenter: Yayla Sezginer 
+- Presentation materials: [repo](https://github.com/yaylasezginer/ohw-tutorials/tree/OHW26/01-Tue/DataAccess)
 - [YouTube recording]()                                                                                                  
 
 ## Inroduction to Xarray
