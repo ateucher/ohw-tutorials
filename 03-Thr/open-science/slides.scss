@@ -206,3 +206,12 @@ span.git-orange {
   color: $quote-color;
   border-color: $quote-color;
 }
+
+.reveal .slides section .fragment.bold-in {
+  opacity: 1;
+  visibility: inherit;
+}
+
+.reveal .slides section .fragment.bold-in.visible {
+  font-weight: bold;
+}

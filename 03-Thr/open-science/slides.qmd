@@ -4,3 +4,181 @@ format:
   revealjs:
     theme: [moon, slides.scss]
 ---
+
+## What is Open Science
+
+> The principles of open science are to make ... scientific research
+> transparent, available, and reproducible.\
+> - **NASA Open Science**
+
+- [Open Data\*]{.fragment .bold-in fragment-index=1}
+- [Open Source tools\*]{.fragment .bold-in fragment-index=1}
+- [Open Code\*]{.fragment .bold-in fragment-index=1}
+- Open Access publications
+
+[**\*Open Data Science**]{.fragment fragment-index=1}
+
+::: notes
+- Reproducibility is the key
+- Not just for peers and the scientific community, but important for
+  collaboration
+- You will always have at least one collaborator - your future self
+:::
+
+## Open Data Science
+
+[**The tooling and people enabling reproducible, transparent, and inclusive
+practices for data-intensive science**]{.small}
+
+![](img/tooling-people.png)
+
+::: notes
+**A beautiful feedback loop:** Using similar tooling promotes and streamlines
+teamwork. And teamwork better equips you to learn new tooling. With this shared
+mindset, the idea of team becomes ever-broadening, along with your abilities to
+adapt to an evolving softwarescape.
+:::
+
+# Open Data
+
+## FAIR Principles
+
+::: {.columns}
+::::: {.column width="40%"}
+- **F**indable
+- **A**ccessible
+- **I**nteroperable
+- **R**eusable
+:::::
+
+::::: {.column width="60%"}
+![](img/FAIR.png){height="500px"} :
+:::::
+:::
+
+<https://www.nature.com/articles/sdata201618>
+
+## CARE Principles
+
+![](img/CARE.png)
+
+<https://www.gida-global.org/careprinciples>
+
+::: notes
+emphasis on greater data sharing creates a tension for Indigenous Peoples who
+are also asserting greater control over the application and use of Indigenous
+data and Indigenous Knowledge for collective benefit.
+
+- FAIR is mostly about how data is managed and stored, while CARE is about how
+  data is used and shared with respect to Indigenous Peoples.
+
+Collective Benefit Data ecosystems shall be designed and function in ways that
+enable Indigenous Peoples to derive benefit from the data.
+
+Authority to Control Indigenous Peoples' rights and interests in Indigenous data
+must be recognised and their authority to control such data be empowered.
+Indigenous data governance enables Indigenous Peoples and governing bodies to
+determine how Indigenous Peoples, as well as Indigenous lands, territories,
+resources, knowledges and geographical indicators, are represented and
+identified within data.
+
+Responsibility Those working with Indigenous data have a responsibility to share
+how those data are used to support Indigenous Peoples' self determination and
+collective benefit. Accountability requires meaningful and openly available
+evidence of these efforts and the benefits accruing to Indigenous Peoples.
+
+Ethics Indigenous Peoples' rights and wellbeing should be the primary concern at
+all stages of the data life cycle and across the data ecosystem.
+:::
+
+--------------------------------------------------------------------------------
+
+![](img/CARE-1.png)
+
+[Reused under CC-BY 4.0 license, from
+https://www.gida-global.org/careprinciples](https://static1.squarespace.com/static/5d3799de845604000199cd24/t/640792a43ba5c11a1073bbc8/1678217895508/TheCAREPrinciples.pdf){.small}
+
+--------------------------------------------------------------------------------
+
+![](img/CARE-2.png)
+
+[Reused under CC-BY 4.0 license, from
+https://www.gida-global.org/careprinciples](https://static1.squarespace.com/static/5d3799de845604000199cd24/t/640792a43ba5c11a1073bbc8/1678217895508/TheCAREPrinciples.pdf){.small}
+
+## FNIGC in Canada
+
+![](img/FNIGC-OCAP.png)
+
+<https://fnigc.ca/ocap-training/>
+
+::: notes
+- FNIGC is the First Nations Information Governance Centre
+- Ownership, Control, Access, and Possession (OCAP) is a set of standards that
+  establish how First Nations data should be collected, protected, used, or
+  shared.
+- Course - Fundamentals of OCAP
+:::
+
+# Open Source Tools
+
+::: {.columns}
+::::: {.column width="40%"}
+![](img/r-logo.png){height="300px" fig-align="center"}
+:::::
+
+::::: {.column width="60%"}
+![](img/python-logo.png){height="200px" fig-align="center"}
+:::::
+:::
+
+![](img/julia-logo.svg){height="200px" fig-align="center"}
+
+::: notes
+- if you use proprietary software, you are not able to share your code and
+  workflows with others and they won't be able to run it without purchasing the
+  software
+- R and Python are the most popular programming languages for data science and
+  scientific computing
+- Julia is a newer programming language that is gaining popularity in the
+  scientific computing community
+:::
+
+# Open Code
+
+## Reproducible Workflows
+
+- Open Data
+- Programmatic analysis (e.g., R, Python, Julia)
+- Project-oriented Workflows
+- Version Control
+- Dependency management (e.g., uv/pixi/conda, renv)
+- Literate Programming (Quarto, Jupyter Noteboks)
+- Containerization (e.g., Docker)
+
+## Licensing
+
+> By default, a GitHub repo without an open source licence applied to it is
+> **not open source** (All Rights Reserved).
+
+- MIT is a good, permissive license for most projects
+- Apache 2.0 is similar, but adds an explicit patent grant
+
+### For work
+
+```r
+usethis::use_mit_license(
+  copyright_holder = "His Majesty the King in Right of Canada, as represented by the Minister responsible for Fisheries and Oceans Canada"
+)
+```
+
+### For personal projects {style="padding-top: 30px;"}
+
+```r
+usethis::use_mit_license(
+  copyright_holder = "Andy Teucher"
+)
+```
+
+## Resources
+
+Checklists: https://github.com/oceanhackweek/ohwyy_proj_template/issues
