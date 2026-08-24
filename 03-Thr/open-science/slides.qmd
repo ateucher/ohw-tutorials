@@ -147,13 +147,211 @@ https://www.gida-global.org/careprinciples](https://static1.squarespace.com/stat
 
 ## Reproducible Workflows
 
-- Open Data
-- Programmatic analysis (e.g., R, Python, Julia)
+- Open Data ✅
+- Programmatic analysis (e.g., R, Python, Julia) ✅
 - Project-oriented Workflows
 - Version Control
 - Dependency management (e.g., uv/pixi/conda, renv)
-- Literate Programming (Quarto, Jupyter Noteboks)
+  <!-- - Literate Programming (Quarto, Jupyter Notebooks) -->
 - Containerization (e.g., Docker)
+
+## Be organized as you go, not "tomorrow"
+
+::: columns
+::::: {.column width="50%"}
+Don't fret over past mistakes.
+
+<!-- ![](img/beer-house.png) -->
+:::::
+
+::::: {.column width="4%"}
+:::::
+
+::::: {.column .fragment width="46%"}
+Raise the bar for new work.
+
+<!-- ![](img/beer-organized.png) -->
+:::::
+:::
+
+## Prerequisite: Save code in scripts
+
+**Saving code is an absolute requirement for reproducibility. (Future you,
+future us)**
+
+- Save commands as scripts (.R/.py) or notebooks (.qmd/.ipynb).
+
+- It doesn't have to be polished.
+
+- Just save it!
+
+- Everything that really matters should be achieved through code that you save
+
+- Contrast: Series of unrecorded mouse clicks
+
+The **process** is important, the **product** is just an outcome
+
+- Outputs should be treated as disposable
+- Scripts are the source of truth
+
+## Adopt a project-oriented workflow
+
+<br>
+
+::: columns
+::::: {.column width="48%"}
+### Why
+
+- You *and your code* can find all parts of your project
+
+- collaborate, communicate, distribute
+:::::
+
+::::: {.column width="4%"}
+:::::
+
+::::: {.column .fragment width="48%"}
+### How
+
+- Single dedicated directory
+
+- RStudio Project or VSCode Workspace
+
+- Git repo, probably syncing to a remote
+:::::
+:::
+
+::: footer
+Project-oriented workflows
+:::
+
+## Organize your work into projects
+
+One folder per project.
+
+- Report? Analysis? Notebook? Website? Whatever.
+
+- Can be the same unit as a GitHub Repo.
+
+- All paths are relative to the project's folder.
+
+::: footer
+Project-oriented workflows
+:::
+
+## What does it mean to work in a Project?
+
+- dedicated **R** or **Python** process
+- file browser pointed at Project directory
+- working directory set to Project directory
+
+. . .
+
+<br>
+
+Often just a project folder that's been opened in its own window via *Open
+Folder* or similar
+
+- `.git/` directory
+- `.Rproj` file
+- `.vscode/settings.json` file
+- `_quarto.yml` file
+- `DESCRIPTION` file
+- `renv.lock` file
+- `requirements.txt` file
+
+## Practice "safe paths"
+
+**The chance of `setwd()` having the desired effect -- making the file paths
+work -- for anyone besides its author is `~0%`.**
+
+```r
+library(ggplot2)
+setwd("/Users/andy/cuddly_broccoli/verbose/foofy/data")
+df <- read.csv(“raw_foofy_data.csv”)
+p <- ggplot(df, aes(x, y)) + geom_point()
+ggsave("/Users/andy/cuddly_broccoi/ambiguous/fig.png")
+```
+
+<br> It's also unlikely to work for the author one or two years or computers
+from now.
+
+Hard-wired, absolute paths, especially when sprinkled throughout the code, make
+a project brittle. Such code does not travel well across time or space.
+
+## Practice "safe paths"
+
+<br>
+
+relative to a **stable base**, not **absolute paths**.
+
+<br>
+
+use **file system functions**, not `paste()`, etc.
+
+::: notes
+Working directory is associated with a specific process or running application.
+
+When you open a project in RStudio or Positron, it sets the working directory to
+the project root - this is that "stable base"
+:::
+
+## Practice "safe paths"
+
+Instead of:
+
+```{r}
+#| eval: false
+#| echo: true
+
+setwd("C:/Users/andy/path/that/only/I/have")
+my_data <- read.csv("data/my_data.csv")
+```
+
+Or:
+
+```{r}
+#| eval: false
+#| echo: true
+
+my_data <- read.csv("C:/Users/andy/path/that/only/I/have/data/my_data.csv")
+```
+
+## Practice "safe paths"
+
+Work in a project and use relative paths:
+
+```{r}
+#| eval: false
+#| echo: true
+
+my_data <- read.csv("data/my_data.csv")
+```
+
+Or:
+
+```{r}
+#| eval: false
+#| echo: true
+
+my_data <- read.csv(file.path("data", "my_data.csv"))
+```
+
+::: notes
+- It anchors the editor to a specific project folder as the root --- relative
+  paths in scripts resolve consistently no matter who opens the project or from
+  where.
+- It keeps project-specific settings attached to that folder rather than your
+  global environment, so those choices travel with the repo.
+- It pairs naturally with a self-contained directory + git repo --- the same
+  "self-contained, portable project" idea you're already presenting for RStudio.
+
+whatever tool you use (RStudio Project, Positron Workspace, VS Code workspace),
+the underlying principle is the same --- never rely on a global/absolute-path
+setup (like `setwd("/Users/andy/...")` that only works on your machine. The
+project root becomes the one fixed reference point, so the project runs
+identically for a collaborator or your future self.
+:::
 
 ## Licensing
 
