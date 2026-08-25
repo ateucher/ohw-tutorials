@@ -145,6 +145,14 @@ https://www.gida-global.org/careprinciples](https://static1.squarespace.com/stat
 
 # Open Code
 
+## Thinking for Reuse
+
+- Often we are (or think we are) only doing our data work on our own
+- When we want to facilitate collaboration or focus on reproducibility, we need new strategies:
+  - Project organization
+  - File naming conventions and file path specification
+  - Communication methods
+
 ## Reproducible Workflows
 
 - Open Data ✅
@@ -155,31 +163,12 @@ https://www.gida-global.org/careprinciples](https://static1.squarespace.com/stat
   <!-- - Literate Programming (Quarto, Jupyter Notebooks) -->
 - Containerization (e.g., Docker)
 
-## Be organized as you go, not "tomorrow"
-
-::: columns
-::::: {.column width="50%"}
-Don't fret over past mistakes.
-
-<!-- ![](img/beer-house.png) -->
-:::::
-
-::::: {.column width="4%"}
-:::::
-
-::::: {.column .fragment width="46%"}
-Raise the bar for new work.
-
-<!-- ![](img/beer-organized.png) -->
-:::::
-:::
-
 ## Prerequisite: Save code in scripts
 
 **Saving code is an absolute requirement for reproducibility. (Future you,
 future us)**
 
-- Save commands as scripts (.R/.py) or notebooks (.qmd/.ipynb).
+- Save commands as scripts (`.R`/`.py`) or notebooks (`.qmd`/`.ipynb`).
 
 - It doesn't have to be polished.
 
@@ -252,18 +241,55 @@ Project-oriented workflows
 Often just a project folder that's been opened in its own window via *Open
 Folder* or similar
 
-- `.git/` directory
-- `.Rproj` file
-- `.vscode/settings.json` file
-- `_quarto.yml` file
-- `DESCRIPTION` file
-- `renv.lock` file
-- `requirements.txt` file
+## A project-oriented Python layout
+
+```
+foofy/
+├── .git/
+├── .gitignore
+├── pyproject.toml
+├── README.md
+├── data/
+│   ├── raw/
+│   │   └── raw_foofy_data.csv
+│   └── processed/
+│       └── foofy_clean.csv
+├── src/
+│   └── foofy/
+│       ├── __init__.py
+│       ├── clean.py
+│       └── plotting.py
+├── notebooks/
+│   └── explore.ipynb
+├── figs/
+│   └── fig.png
+└── tests/
+    └── test_clean.py
+```
+
+::: notes
+- Everything the project needs lives under one root folder -- `foofy/` -- so it
+  can be zipped, cloned, or opened by anyone and just work.
+- Structure is up to you, but try to be consistent so you and collaborators
+  are familiar and know how things are organized.
+- `pyproject.toml` (or `requirements.txt`) records dependencies; opening this
+  folder is enough to know what's needed to run it.
+- `data/raw` is treated as read-only input; `data/processed` holds derived
+  outputs -- keeping them separate makes it clear what can be regenerated.
+- `src/foofy` holds importable code (functions), while `notebooks/` holds
+  exploratory/narrative work that calls into it.
+- All paths in code are relative to this root, e.g.
+  `pd.read_csv("data/raw/raw_foofy_data.csv")`.
+:::
 
 ## Practice "safe paths"
 
-**The chance of `setwd()` having the desired effect -- making the file paths
-work -- for anyone besides its author is `~0%`.**
+**The chance of `setwd()` (or `os.chdir()`), or reading/writing from/to an 
+absolute path, having the desired effect -- making the file paths work -- for 
+anyone besides its author is `~0%`.**
+
+::: panel-tabset
+### R
 
 ```r
 library(ggplot2)
@@ -272,6 +298,20 @@ df <- read.csv(“raw_foofy_data.csv”)
 p <- ggplot(df, aes(x, y)) + geom_point()
 ggsave("/Users/andy/cuddly_broccoi/ambiguous/fig.png")
 ```
+
+### Python
+
+```python
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+
+os.chdir("/Users/andy/cuddly_broccoli/verbose/foofy/data")
+df = pd.read_csv("raw_foofy_data.csv")
+df.plot(x="x", y="y", kind="scatter")
+plt.savefig("/Users/andy/cuddly_broccoi/ambiguous/fig.png")
+```
+:::
 
 <br> It's also unlikely to work for the author one or two years or computers
 from now.
@@ -292,18 +332,21 @@ use **file system functions**, not `paste()`, etc.
 ::: notes
 Working directory is associated with a specific process or running application.
 
-When you open a project in RStudio or Positron, it sets the working directory to
-the project root - this is that "stable base"
+When you open a project (folder), it sets the working directory to the project
+root - this is that "stable base"
 :::
 
 ## Practice "safe paths"
 
 Instead of:
 
+::: panel-tabset
+### R
+
 ```{r}
 #| eval: false
 #| echo: true
-
+#| 
 setwd("C:/Users/andy/path/that/only/I/have")
 my_data <- read.csv("data/my_data.csv")
 ```
@@ -317,9 +360,27 @@ Or:
 my_data <- read.csv("C:/Users/andy/path/that/only/I/have/data/my_data.csv")
 ```
 
+### Python
+
+```python
+import os
+os.chdir("C:/Users/andy/path/that/only/I/have")
+my_data = pd.read_csv("data/my_data.csv")
+```
+
+Or:
+
+```python
+my_data = pd.read_csv("C:/Users/andy/path/that/only/I/have/data/my_data.csv")
+```
+:::
+
 ## Practice "safe paths"
 
 Work in a project and use relative paths:
+
+::: panel-tabset
+### R
 
 ```{r}
 #| eval: false
@@ -337,21 +398,36 @@ Or:
 my_data <- read.csv(file.path("data", "my_data.csv"))
 ```
 
+### Python
+
+```python
+my_data = pd.read_csv("data/my_data.csv")
+```
+
+Or:
+
+```python
+from pathlib import Path
+my_data = pd.read_csv(Path("data") / "my_data.csv")
+```
+:::
+
 ::: notes
 - It anchors the editor to a specific project folder as the root --- relative
   paths in scripts resolve consistently no matter who opens the project or from
   where.
-- It keeps project-specific settings attached to that folder rather than your
-  global environment, so those choices travel with the repo.
-- It pairs naturally with a self-contained directory + git repo --- the same
-  "self-contained, portable project" idea you're already presenting for RStudio.
+- It pairs naturally with a git repo
 
-whatever tool you use (RStudio Project, Positron Workspace, VS Code workspace),
-the underlying principle is the same --- never rely on a global/absolute-path
-setup (like `setwd("/Users/andy/...")` that only works on your machine. The
+- never rely on a global/absolute-path setup that only works on your machine. The
 project root becomes the one fixed reference point, so the project runs
 identically for a collaborator or your future self.
 :::
+
+# Version Control
+
+
+
+## README
 
 ## Licensing
 
@@ -361,22 +437,23 @@ identically for a collaborator or your future self.
 - MIT is a good, permissive license for most projects
 - Apache 2.0 is similar, but adds an explicit patent grant
 
-### For work
+. . .
 
-```r
-usethis::use_mit_license(
-  copyright_holder = "His Majesty the King in Right of Canada, as represented by the Minister responsible for Fisheries and Oceans Canada"
-)
+#### Work Projects
+
+```
+Copyright (c) 2026 His Majesty the King in Right of Canada, as represented by the Minister responsible for Fisheries and Oceans Canada
 ```
 
-### For personal projects {style="padding-top: 30px;"}
+#### Personal projects
 
-```r
-usethis::use_mit_license(
-  copyright_holder = "Andy Teucher"
-)
+```
+Copyright (c) 2026 Andy Teucher
 ```
 
+# Dependency Management
+
+# Literate Programming
 ## Resources
 
 Checklists: https://github.com/oceanhackweek/ohwyy_proj_template/issues
