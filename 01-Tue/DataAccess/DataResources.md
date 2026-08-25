@@ -21,3 +21,6 @@ A non-exhaustive list of open access datasets and data discovery tools with a fo
 | [World Ocean Atlas](https://www.ncei.noaa.gov/products/world-ocean-atlas) | Generate figures or gridded datasets of ocean variables at a specified depth over a specified time period |
 | [Observing System Monitor Center](https://globalocean.noaa.gov/resources/osmc-data/) | Access near-real-time data from from various oceanographic platforms such as ships, floats, and tide gauges |
 | [CIOOS](http://cioos.ca) | Canadian Integrated Ocean Observing System. Data discovery tools for Canadian datasets |
+| [GOBAI-O2](https://www.pmel.noaa.gov/gobai/) | Global Gridded Ocean Biogeochemistry from Artificial Intelligence (talk to Eli) |
+| [PACE data](https://pace.oceansciences.org/data_table.htm) | NASA PACE satellite mission: Plankton, Aerosol, Clouds and ocean Ecosystems (talk to Eli) |
+| [ARCO OCEAN](https://registry.opendata.aws/ogs-arco-ocean/) | ARCO-OCEAN is an analysis-ready cloud-optimized dataset providing physical properties of the ocean, waves, and sea ice for a period of about 28 years between the 1st of January 1993 and the 30th of June 2021. (talk to Eli) |
