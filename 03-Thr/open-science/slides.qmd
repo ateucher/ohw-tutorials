@@ -1,5 +1,6 @@
 ---
 title: "Open Science and Reproducible Workflows"
+subtitle: "OceanHackWeek 2026"
 format:
   revealjs:
     theme: [moon, slides.scss]
@@ -231,14 +232,15 @@ One folder per project.
 Often just a project folder that's been opened in its own window via *Open
 Folder* or similar
 
-## A project-oriented Python layout
+## Example Project Structure
 
-```
+```{.file-tree}
 foofy/
-├── .git/
-├── .gitignore
 ├── pyproject.toml
+├── pixi.lock
 ├── README.md
+├── LICENSE.md
+├── foofy-paper.qmd
 ├── data/
 │   ├── raw/
 │   │   └── raw_foofy_data.csv
@@ -246,15 +248,13 @@ foofy/
 │       └── foofy_clean.csv
 ├── src/
 │   └── foofy/
-│       ├── __init__.py
+│       ├── get-data.py
 │       ├── clean.py
 │       └── plotting.py
 ├── notebooks/
 │   └── explore.ipynb
-├── figs/
-│   └── fig.png
-└── tests/
-    └── test_clean.py
+└── figs/
+    └── fig.png
 ```
 
 ::: notes
@@ -282,20 +282,15 @@ anyone besides its author is `~0%`.**
 ### R
 
 ```r
-library(ggplot2)
-setwd("/Users/andy/cuddly_broccoli/verbose/foofy/data")
+setwd("C:\\Users\\andy\\cuddly_broccoli\\verbose\\foofy\\data")
 df <- read.csv(“raw_foofy_data.csv”)
 p <- ggplot(df, aes(x, y)) + geom_point()
-ggsave("/Users/andy/cuddly_broccoi/ambiguous/fig.png")
+ggsave("C:\\Users\\andy\\cuddly_broccoli\\ambiguous\\fig.png")
 ```
 
 ### Python
 
 ```python
-import os
-import pandas as pd
-import matplotlib.pyplot as plt
-
 os.chdir("/Users/andy/cuddly_broccoli/verbose/foofy/data")
 df = pd.read_csv("raw_foofy_data.csv")
 df.plot(x="x", y="y", kind="scatter")
@@ -311,96 +306,29 @@ a project brittle. Such code does not travel well across time or space.
 
 ## Practice "safe paths"
 
-<br>
+- Work in a project and use relative paths
+- Relative to a **stable base**, not **absolute paths**.
+- Use **file system functions**, not `paste()`, etc.
 
-relative to a **stable base**, not **absolute paths**.
+. . .
 
-<br>
-
-use **file system functions**, not `paste()`, etc.
-
-::: notes
-Working directory is associated with a specific process or running application.
-
-When you open a project (folder), it sets the working directory to the project
-root - this is that "stable base"
-:::
-
-## Practice "safe paths"
-
-Instead of:
-
-::: panel-tabset
 ### R
 
 ```{r}
 #| eval: false
 #| echo: true
-#| 
-setwd("C:/Users/andy/path/that/only/I/have")
-my_data <- read.csv("data/my_data.csv")
-```
+data_path <- file.path("data", "my_data.csv")
 
-Or:
-
-```{r}
-#| eval: false
-#| echo: true
-
-my_data <- read.csv("C:/Users/andy/path/that/only/I/have/data/my_data.csv")
+my_data <- read.csv(data_path)
 ```
 
 ### Python
-
-```python
-import os
-os.chdir("C:/Users/andy/path/that/only/I/have")
-my_data = pd.read_csv("data/my_data.csv")
-```
-
-Or:
-
-```python
-my_data = pd.read_csv("C:/Users/andy/path/that/only/I/have/data/my_data.csv")
-```
-:::
-
-## Practice "safe paths"
-
-Work in a project and use relative paths:
-
-::: panel-tabset
-### R
-
-```{r}
-#| eval: false
-#| echo: true
-
-my_data <- read.csv("data/my_data.csv")
-```
-
-Or:
-
-```{r}
-#| eval: false
-#| echo: true
-
-my_data <- read.csv(file.path("data", "my_data.csv"))
-```
-
-### Python
-
-```python
-my_data = pd.read_csv("data/my_data.csv")
-```
-
-Or:
 
 ```python
 from pathlib import Path
+
 my_data = pd.read_csv(Path("data") / "my_data.csv")
 ```
-:::
 
 ::: notes
 - It anchors the editor to a specific project folder as the root --- relative
