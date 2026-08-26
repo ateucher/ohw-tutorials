@@ -1,0 +1,5 @@
+data/fathomnet_underwater_tutorial_bundle/
+tmp/
+*.pt
+__pycache__/
+.ipynb_checkpoints/
