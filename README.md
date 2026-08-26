@@ -7,7 +7,7 @@
 | Mon 3| Getting started with Git/GitHub | Austen Sorochak | [slides](https://docs.google.com/presentation/d/1o5n8Jajf55KjF3i-7EhNnydWNPh0hhQr), [repo](https://github.com/oceanhackweek/ohw26-intro-activity)| |
 | Tue 1| Ocean Data Access | Yayla Sezginer | [repo](https://github.com/oceanhackweek/ohw-tutorials/tree/OHW26/01-Tue/DataAccess)| |
 | Tue 2| Introduction to Xarray |  Valentina Staneva, Alex Kerney | [repo](https://github.com/oceanhackweek/ohw-tutorials/tree/OHW26/01-Tue/xarray) | |
-| Wed 1| Object Detection \& Image Segmentation | Spencer Bialek| | | 
+| Wed 1| Underwater Machine Vision: Object Detection \& Segmentation | Spencer Bialek| [materials](https://github.com/oceanhackweek/ohw-tutorials/tree/OHW26/02-Wed/UnderwaterMachineVision) | |
 | Wed 2| DataVis: Examples in Scientific Data Visualization | Yayla, Julek, Madeline, Bronwyn| |
 | Thu 1| Open Science and Reproducible Workflows | Andy Teucher | [repo](https://github.com/oceanhackweek/ohw-tutorials/tree/OHW26/03-Thr/open-science)| |
 

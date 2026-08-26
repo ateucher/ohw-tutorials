@@ -1,8 +1,8 @@
 # Wednesday tutorials
 
 ## Tutorial 1           
-- Presenter:
-- Presentation materials:
+- Presenter: Spencer Bialek
+- Presentation materials: [Underwater Machine Vision: Object Detection and Segmentation](UnderwaterMachineVision)
 - [YouTube recording]()                                                                                                  
 
 ## Tutorial 2
