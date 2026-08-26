@@ -152,16 +152,6 @@ https://www.gida-global.org/careprinciples](https://static1.squarespace.com/stat
   - File naming conventions and file path specification
   - Communication methods
 
-## Reproducible Workflows
-
-- Open Data ✅
-- Programmatic analysis (e.g., R, Python, Julia) ✅
-- Project-oriented Workflows
-- Version Control
-- Dependency management (e.g., uv/pixi/conda, renv)
-  <!-- - Literate Programming (Quarto, Jupyter Notebooks) -->
-- Containerization (e.g., Docker)
-
 ## Prerequisite: Save code in scripts
 
 **Saving code is an absolute requirement for reproducibility. (Future you,
@@ -274,9 +264,9 @@ foofy/
 
 ## Practice "safe paths"
 
-**The chance of `setwd()` (or `os.chdir()`), or reading/writing from/to an 
+The chance of `setwd()` (or `os.chdir()`), or reading/writing from/to an 
 absolute path, having the desired effect -- making the file paths work -- for 
-anyone besides its author is `~0%`.**
+anyone besides its author is **`~0%`**.
 
 ::: panel-tabset
 ### R
@@ -298,7 +288,9 @@ plt.savefig("/Users/andy/cuddly_broccoi/ambiguous/fig.png")
 ```
 :::
 
-<br> It's also unlikely to work for the author one or two years or computers
+. . .
+
+It's also unlikely to work for the author one or two years or computers
 from now.
 
 Hard-wired, absolute paths, especially when sprinkled throughout the code, make
@@ -359,7 +351,7 @@ identically for a collaborator or your future self.
 collaboration and reproducibility
 - Version control helps prevent that
 :::
-## README
+## README.md
 
 **The first thing a human (including future you) sees when they open the
 repo.**
@@ -377,7 +369,7 @@ Treat it as living documentation -- update it as the project evolves.
   to get started within a minute or two.
 :::
 
-## Licensing
+## LICENSE.md
 
 > By default, a GitHub repo without an open source licence applied to it is
 > **not open source** (All Rights Reserved).
@@ -479,6 +471,19 @@ Code and narrative text in a single document means:
 ## {background-image="img/quarto.png" background-size="contain"}
 
 ## {background-image="img/quarto-html.png" background-size="contain"}
-## Resources
 
-Checklists: https://github.com/oceanhackweek/ohwyy_proj_template/issues
+## Reproducible Workflows
+
+- ✅ Open Data
+- ✅ Open Source Tools
+- ✅ Project-oriented Workflows
+- ✅ Open Code + Version Control
+- ✅ Dependency management (e.g., uv/pixi/conda, renv)
+- ✅ Literate Programming (Quarto, Jupyter Notebooks)
+- Containerization (e.g., Docker)
+
+Checklists: <https://github.com/oceanhackweek/ohwyy_proj_template/issues>
+
+## Discussion
+
+- What is one step you can take right now to make your work more reproducible?
