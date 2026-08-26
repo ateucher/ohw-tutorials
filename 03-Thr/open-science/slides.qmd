@@ -474,7 +474,7 @@ Code and narrative text in a single document means:
 
 ## Reproducible Workflows
 
-- ✅ Open Data
+- ✅ Open Data (FAIR + CARE)
 - ✅ Open Source Tools
 - ✅ Project-oriented Workflows
 - ✅ Open Code + Version Control
