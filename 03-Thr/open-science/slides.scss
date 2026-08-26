@@ -12,6 +12,7 @@ $presentation-font-size-root: 40px;
 $git-orange: #ffa500;
 $highlight-term-color: #e2b4c3ff;
 $quote-color: adjust-color($color: $highlight-term-color, $lightness: 5%, $alpha: 1.0);
+$yellow-bright: #ffed27ff;
 
 // headings
 $headingTextTransform: none;
@@ -39,7 +40,7 @@ $h3-font-size: 1.15em !default;
 }
 
 .color-yellow {
-    color: #ffed27ff;
+    color: $yellow-bright;
 }
 
 .small {
@@ -214,4 +215,5 @@ span.git-orange {
 
 .reveal .slides section .fragment.bold-in.visible {
   font-weight: bold;
+  color: $yellow-bright;
 }

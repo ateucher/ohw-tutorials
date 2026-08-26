@@ -11,12 +11,12 @@ format:
 > transparent, available, and reproducible.\
 > - **NASA Open Science**
 
-- [Open Data\*]{.fragment .bold-in fragment-index=1}
-- [Open Source tools\*]{.fragment .bold-in fragment-index=1}
-- [Open Code\*]{.fragment .bold-in fragment-index=1}
+- [Open Data]{.fragment .bold-in fragment-index=1}
+- [Open Source tools]{.fragment .bold-in fragment-index=1}
+- [Open Code]{.fragment .bold-in fragment-index=1}
 - Open Access publications
 
-[**\*Open Data Science**]{.fragment fragment-index=1}
+[**Reproducibility**]{.color-yellow .fragment fragment-index=1 style="font-weight: bold; font-size: 1.5em;"}
 
 ::: notes
 - Reproducibility is the key
@@ -143,8 +143,6 @@ https://www.gida-global.org/careprinciples](https://static1.squarespace.com/stat
   scientific computing community
 :::
 
-# Open Code
-
 ## Thinking for Reuse
 
 - Often we are (or think we are) only doing our data work on our own
@@ -210,10 +208,6 @@ The **process** is important, the **product** is just an outcome
 :::::
 :::
 
-::: footer
-Project-oriented workflows
-:::
-
 ## Organize your work into projects
 
 One folder per project.
@@ -223,10 +217,6 @@ One folder per project.
 - Can be the same unit as a GitHub Repo.
 
 - All paths are relative to the project's folder.
-
-::: footer
-Project-oriented workflows
-:::
 
 ## What does it mean to work in a Project?
 
@@ -425,9 +415,39 @@ identically for a collaborator or your future self.
 
 # Version Control
 
+## {background-image="img/why-github.png"}
 
+::: notes
+- Git is the tool that tracks history locally; a **remote** (GitHub, GitLab,
+  Codeberg, ...) is what turns that into backup + collaboration.
+- Contrast with "final_v2_reallyfinal.R" style versioning by filename -- Git
+  replaces that with real history you can diff, branch, and revert.
+:::
 
+## {background-image="img/commits.png" background-size="contain"}
+
+::: notes
+- having files named with `_v1`, `_v2`, `_final`, etc. is a barrier to '
+collaboration and reproducibility
+- Version control helps prevent that
+:::
 ## README
+
+**The first thing a human (including future you) sees when they open the
+repo.**
+
+- What is this project, and why does it exist?
+- How do I install/set it up and run it?
+- How do I cite it, or who do I contact with questions?
+
+Treat it as living documentation -- update it as the project evolves.
+
+::: notes
+- Minimal useful structure: Title, Description, Installation, Usage,
+  License, Contact/Citation.
+- A stranger should be able to land on the repo and know what it does and how
+  to get started within a minute or two.
+:::
 
 ## Licensing
 
@@ -441,19 +461,96 @@ identically for a collaborator or your future self.
 
 #### Work Projects
 
-```
+```{.black-code}
 Copyright (c) 2026 His Majesty the King in Right of Canada, as represented by the Minister responsible for Fisheries and Oceans Canada
 ```
 
 #### Personal projects
 
-```
+```{.black-code}
 Copyright (c) 2026 Andy Teucher
 ```
 
 # Dependency Management
 
-# Literate Programming
+## Why manage dependencies?
+
+- Code depends on specific packages -- **and specific versions** of them
+
+- "Works on my machine" isn't reproducible
+
+- A **lockfile** records the exact environment (packages + versions) so it can
+  be recreated on another machine, months or years later
+
+- Goal: one command to install/restore the *exact* environment a project needs
+
+::: notes
+- Package APIs and behaviour change over time; without pinning, a script that
+  works today may silently break (or silently give different results) after an
+  update.
+- The lockfile is what gets committed to the repo, not the packages
+  themselves -- it's small, diffable, and versioned alongside the code.
+:::
+
+## `renv` (R) and `pixi` (Python)
+
+Both create a **project-local** environment and a lockfile you commit to
+the repo.
+
+::: panel-tabset
+### R (`renv`)
+
+```r
+renv::init()      # start using renv in this project
+renv::snapshot()  # record package versions -> renv.lock
+renv::restore()   # reinstall exact versions from renv.lock
+```
+
+Produces `renv.lock` + a project-local `renv/library`.
+
+### Python (`pixi`)
+
+```bash
+pixi init                  # creates pixi.toml
+pixi add numpy pandas      # add deps -> updates pixi.lock
+pixi run python script.py  # run inside the reproducible env
+```
+
+Produces `pixi.toml` + `pixi.lock`.
+:::
+
+::: notes
+- Collaborators (or your future self) run one restore/install command instead
+  of manually reinstalling packages and hoping for the same versions.
+- `pixi` also manages the Python interpreter version itself (via conda-forge),
+  similar to how `renv` can pin the R version.
+:::
+
+# Reproducible Reporting
+
+Research is considered to be reproducible when the exact results can be 
+reproduced if given access to the original data, software, and code.
+
+\
+
+. . .
+
+Code and narrative text in a single document means:
+
+::: {.incremental}
+
+- You don't have to copy and paste figures and tables into reports
+- Reports are automatically updated when data or analyses change
+- Human error is reduced
+- Enhanced transparency and reproducibility
+
+:::
+
+## {background-image="img/literate-programming.png" background-size="contain"}
+
+## {background-image="img/quarto.png" background-size="contain"}
+
+## {background-image="img/quarto-html.png" background-size="contain"}
 ## Resources
 
 Checklists: https://github.com/oceanhackweek/ohwyy_proj_template/issues
