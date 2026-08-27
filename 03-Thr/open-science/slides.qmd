@@ -83,12 +83,12 @@ must be recognised and their authority to control such data be empowered.
 determine how Indigenous Peoples, as well as Indigenous lands, territories,
 resources, knowledge, are represented and identified within data.
 
-- *Responsibility* Those working with Indigenous data have a responsibility to share
+- **Responsibility** Those working with Indigenous data have a responsibility to share
 how those data are used to support Indigenous Peoples' self determination and
 collective benefit. Accountability requires meaningful and openly available
 evidence of these efforts and the benefits accruing to Indigenous Peoples.
 
-- *Ethics* Indigenous Peoples' rights and wellbeing should be the primary concern at
+- **Ethics** Indigenous Peoples' rights and wellbeing should be the primary concern at
 all stages of the data life cycle and across the data ecosystem.
 :::
 
@@ -334,7 +334,7 @@ identically for a collaborator or your future self.
 
 # Version Control
 
-## {background-image="img/why-github.png"}
+## {background-image="img/why-github.png" background-size="contain"}
 
 ::: notes
 - Git is the tool that tracks history locally; a **remote** (GitHub, GitLab,
