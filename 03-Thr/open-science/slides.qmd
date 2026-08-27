@@ -73,22 +73,22 @@ data and Indigenous Knowledge for collective benefit.
 - FAIR is mostly about how data is managed and stored, while CARE is about how
   data is used and shared with respect to Indigenous Peoples.
 
-Collective Benefit Data ecosystems shall be designed and function in ways that
+- **Collective Benefit** Data ecosystems shall be designed and function in ways that
 enable Indigenous Peoples to derive benefit from the data.
 
-Authority to Control Indigenous Peoples' rights and interests in Indigenous data
-must be recognised and their authority to control such data be empowered.
-Indigenous data governance enables Indigenous Peoples and governing bodies to
-determine how Indigenous Peoples, as well as Indigenous lands, territories,
-resources, knowledges and geographical indicators, are represented and
-identified within data.
+- **Authority** to Control Indigenous Peoples' rights and interests in Indigenous data
+must be recognised and their authority to control such data be empowered. 
 
-Responsibility Those working with Indigenous data have a responsibility to share
+- Enables Indigenous Peoples and governing bodies to
+determine how Indigenous Peoples, as well as Indigenous lands, territories,
+resources, knowledge, are represented and identified within data.
+
+- *Responsibility* Those working with Indigenous data have a responsibility to share
 how those data are used to support Indigenous Peoples' self determination and
 collective benefit. Accountability requires meaningful and openly available
 evidence of these efforts and the benefits accruing to Indigenous Peoples.
 
-Ethics Indigenous Peoples' rights and wellbeing should be the primary concern at
+- *Ethics* Indigenous Peoples' rights and wellbeing should be the primary concern at
 all stages of the data life cycle and across the data ecosystem.
 :::
 
@@ -144,7 +144,7 @@ https://www.gida-global.org/careprinciples](https://static1.squarespace.com/stat
   scientific computing community
 :::
 
-## Thinking for Reuse
+## Code: Thinking for Reuse
 
 - Often we are (or think we are) only doing our data work on our own
 - When we want to facilitate collaboration or focus on reproducibility, we need new strategies:
@@ -211,8 +211,8 @@ One folder per project.
 
 ## What does it mean to work in a Project?
 
-- dedicated **R** or **Python** process
-- file browser pointed at Project directory
+- dedicated **R** or **Python** process running in Project directory
+- IDE's file browser pointed at Project directory
 - working directory set to Project directory
 
 . . .
@@ -222,7 +222,7 @@ One folder per project.
 Often just a project folder that's been opened in its own window via *Open
 Folder* or similar
 
-## Example Project Structure
+## Intentionally Choose a Project Structure
 
 ```{.file-tree}
 foofy/
@@ -258,11 +258,10 @@ foofy/
   outputs -- keeping them separate makes it clear what can be regenerated.
 - `src/foofy` holds importable code (functions), while `notebooks/` holds
   exploratory/narrative work that calls into it.
-- All paths in code are relative to this root, e.g.
-  `pd.read_csv("data/raw/raw_foofy_data.csv")`.
+- All paths in code are relative to this root
 :::
 
-## Practice "safe paths"
+## Practice "safe paths" in your code
 
 The chance of `setwd()` (or `os.chdir()`), or reading/writing from/to an 
 absolute path, having the desired effect -- making the file paths work -- for 
@@ -347,8 +346,8 @@ identically for a collaborator or your future self.
 ## {background-image="img/commits.png" background-size="contain"}
 
 ::: notes
-- having files named with `_v1`, `_v2`, `_final`, etc. is a barrier to '
-collaboration and reproducibility
+- having files named with `_v1`, `_v2`, `_final`, etc. is a barrier to
+collaboration and reproducibility because it becomes hard to know what you did.
 - Version control helps prevent that
 :::
 ## README.md
@@ -391,6 +390,12 @@ Copyright (c) 2026 His Majesty the King in Right of Canada, as represented by th
 Copyright (c) 2026 Andy Teucher
 ```
 
+## Other important files
+
+### CONTRIBUTING.md
+
+### CODE_OF_CONDUCT.md
+
 # Dependency Management
 
 ## Why manage dependencies?
@@ -405,7 +410,7 @@ Copyright (c) 2026 Andy Teucher
 - Goal: one command to install/restore the *exact* environment a project needs
 
 ::: notes
-- Package APIs and behaviour change over time; without pinning, a script that
+- Package APIs and behaviour change over time; a script that
   works today may silently break (or silently give different results) after an
   update.
 - The lockfile is what gets committed to the repo, not the packages
@@ -431,9 +436,9 @@ Produces `renv.lock` + a project-local `renv/library`.
 ### Python (`pixi`)
 
 ```bash
-pixi init                  # creates pixi.toml
-pixi add numpy pandas      # add deps -> updates pixi.lock
-pixi run python script.py  # run inside the reproducible env
+pixi init              # creates pixi.toml
+pixi add numpy pandas  # add deps -> updates pixi.lock
+pixi install           # install environment according to pixi.lock
 ```
 
 Produces `pixi.toml` + `pixi.lock`.
@@ -455,7 +460,7 @@ reproduced if given access to the original data, software, and code.
 
 . . .
 
-Code and narrative text in a single document means:
+If we can put our code and narrative text in a single document, it means:
 
 ::: {.incremental}
 
@@ -478,12 +483,21 @@ Code and narrative text in a single document means:
 - ✅ Open Source Tools
 - ✅ Project-oriented Workflows
 - ✅ Open Code + Version Control
-- ✅ Dependency management (e.g., uv/pixi/conda, renv)
+- ✅ Dependency management (e.g., `uv`/`pixi`/`conda`/`renv`)
 - ✅ Literate Programming (Quarto, Jupyter Notebooks)
 - Containerization (e.g., Docker)
 
 Checklists: <https://github.com/oceanhackweek/ohwyy_proj_template/issues>
 
+::: notes
+Containers
+- The operating system in use,
+- The compiler flags used when R and packages are built,
+- The LAPACK / BLAS system(s) in use,
+- The versions of system libraries installed and in use,
+:::
+
 ## Discussion
 
 - What is one step you can take right now to make your work more reproducible?
+- What is the biggest challenge in your work to making it more reproducible?
