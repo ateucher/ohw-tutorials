@@ -4,6 +4,7 @@ subtitle: "OceanHackWeek 2026"
 format:
   revealjs:
     theme: [moon, slides.scss]
+    embed-resources: true
 ---
 
 ## What is Open Science
