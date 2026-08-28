@@ -60,8 +60,12 @@ adapt to an evolving softwarescape.
 
 :::
 
+::: aside
+
 <https://www.go-fair.org/fair-principles/>
 <https://www.nature.com/articles/sdata201618>
+
+:::
 
 ::: notes
 
@@ -100,7 +104,9 @@ R1.3. (Meta)data meet domain-relevant community standards
 
 ![](img/CARE.png)
 
+::: aside
 <https://www.gida-global.org/careprinciples>
+:::
 
 ::: notes
 **pronounce: ho-ay-at**
@@ -135,8 +141,10 @@ all stages of the data life cycle and across the data ecosystem.
 
 ![](img/CARE-1.png)
 
+::: aside
 [Reused under CC-BY 4.0 license, from
 https://www.gida-global.org/careprinciples](https://static1.squarespace.com/static/5d3799de845604000199cd24/t/640792a43ba5c11a1073bbc8/1678217895508/TheCAREPrinciples.pdf){.small}
+:::
 
 ::: notes
 **pronounce: ho-ay-at**
@@ -146,14 +154,18 @@ https://www.gida-global.org/careprinciples](https://static1.squarespace.com/stat
 
 ![](img/CARE-2.png)
 
+::: aside
 [Reused under CC-BY 4.0 license, from
 https://www.gida-global.org/careprinciples](https://static1.squarespace.com/static/5d3799de845604000199cd24/t/640792a43ba5c11a1073bbc8/1678217895508/TheCAREPrinciples.pdf){.small}
+:::
 
 ## FNIGC in Canada
 
 ![](img/FNIGC-OCAP.png)
 
+::: aside
 <https://fnigc.ca/ocap-training/>
+:::
 
 ::: notes
 - FNIGC is the First Nations Information Governance Centre
@@ -200,20 +212,24 @@ https://www.gida-global.org/careprinciples](https://static1.squarespace.com/stat
 **Saving code is an absolute requirement for reproducibility. (Future you,
 future us)**
 
+::: small
+
 - Save commands as scripts (`.R`/`.py`) or notebooks (`.qmd`/`.ipynb`).
-
 - It doesn't have to be polished.
-
 - Just save it!
-
 - Everything that really matters should be achieved through code that you save
-
 - Contrast: Series of unrecorded mouse clicks
+
+:::
 
 The **process** is important, the **product** is just an outcome
 
+::: small
+
 - Outputs should be treated as disposable
 - Scripts are the source of truth
+
+:::
 
 ## Adopt a project-oriented workflow
 
@@ -355,11 +371,14 @@ plt.savefig("/Users/andy/cuddly_broccoi/ambiguous/fig.png")
 
 . . .
 
+::: small
+
 - It's also unlikely to work for the author one or two years or computers
 from now.
-
 - Hard-wired, absolute paths make a project brittle. Such code does not travel 
 well across time or space.
+
+:::
 
 ## Practice "safe paths"
 
@@ -398,9 +417,11 @@ my_data = pd.read_csv(Path("data") / "my_data.csv")
 
 # Version Control
 
-## {background-image="img/why-github.png" background-size="contain"}
+---
 
-::: footer
+![](img/why-github.png)
+
+::: aside
 Artwork by [Allison Horst](https://allisonhorst.com/), CC-BY 4.0
 :::
 
@@ -411,9 +432,11 @@ Artwork by [Allison Horst](https://allisonhorst.com/), CC-BY 4.0
   replaces that with real history you can diff, branch, and revert.
 :::
 
-## {background-image="img/commits.png" background-size="contain"}
+---
 
-::: footer
+![](img/commits.png)
+
+::: aside
 Artwork by [Allison Horst](https://allisonhorst.com/), CC-BY 4.0
 :::
 
@@ -525,10 +548,8 @@ Produces `pixi.toml` + `pixi.lock`.
 
 # Reproducible Reporting
 
-Research is considered to be reproducible when the exact results can be 
-reproduced if given access to the original data, software, and code.
-
-\
+Exact results can be reproduced if given access to the original data, software, 
+and code.
 
 . . .
 
@@ -559,7 +580,9 @@ If we can put our code and narrative text in a single document, it means:
 - ✅ Literate Programming (Quarto, Jupyter Notebooks)
 - Containerization (e.g., Docker)
 
+::: aside
 Checklists: <https://github.com/oceanhackweek/ohwyy_proj_template/issues>
+:::
 
 ::: notes
 Containers
@@ -574,7 +597,7 @@ Containers
 - What is one step you can take right now to make your work more reproducible?
 - What is the biggest challenge in your work to making it more reproducible?
 
-::: footer
+::: aside
 Slides: [pdf](https://github.com/oceanhackweek/ohw-tutorials/blob/OHW26/03-Thr/open-science/reproducible-workflows.pdf) / 
 [Quarto source](https://github.com/oceanhackweek/ohw-tutorials/blob/OHW26/03-Thr/open-science/slides.qmd)
 :::
