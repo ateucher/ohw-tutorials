@@ -1,0 +1,13 @@
+--extra-index-url https://download.pytorch.org/whl/cu128
+
+torch==2.11.0
+torchvision==0.26.0
+ultralytics==8.4.41
+numpy
+pandas
+matplotlib
+pyyaml
+pillow
+scikit-learn
+opencv-python-headless
+huggingface_hub
