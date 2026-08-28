@@ -108,6 +108,10 @@ $h3-font-size: 1.15em !default;
   font-family: $presentation-heading-font;
 }
 
+.reveal .footer a {
+  color: $body-color;
+}
+
 .reveal .slide-number {
   color: $link-color;
   font-family: $presentation-heading-font;

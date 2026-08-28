@@ -573,3 +573,8 @@ Containers
 
 - What is one step you can take right now to make your work more reproducible?
 - What is the biggest challenge in your work to making it more reproducible?
+
+::: footer
+Slides: [pdf](https://github.com/oceanhackweek/ohw-tutorials/blob/OHW26/03-Thr/open-science/reproducible-workflows.pdf) / 
+[Quarto source](https://github.com/oceanhackweek/ohw-tutorials/blob/OHW26/03-Thr/open-science/slides.qmd)
+:::
